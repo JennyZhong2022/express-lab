@@ -8,14 +8,17 @@ app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname,'views'))
 
 
-app.get('/home', (req,res) => {
-  res.render('home')
-})
+
 
 app.get('/students', (req,res) => {
   res.render('students', {
     students:students.getAll()
   })
+})
+
+app.get('/students/:id', (req, res) => {
+  console.log(students.getOne(req.params.id));
+  res.render('show',{student:students.getOne(req.params.id)})
 })
 
 app.listen(3000, ()=>{

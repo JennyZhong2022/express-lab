@@ -1,12 +1,17 @@
 const students = [
-  { name: 'Jen', gender: 'female' },
-  { name: 'Ben', gender: 'male' },
-  {name:'Victor',gender:'not sure'},
-  {name:'Dan',gender:'who knows'}
+  { name: 'Jen', id:1, gender: 'female' },
+  { name: 'Ben',id:2, gender: 'male' },
+  {name:'Victor',id:3,gender:'not sure'},
+  {name:'Dan',id:4,gender:'who knows'}
 ]
 
 module.exports = {
-  getAll:function() {
+  getAll:()=> {
     return students
-  }
+  },
+  getOne:(id)=> {
+    return students.find(student => 
+      student.id===parseInt(id)
+    );
+}
 }
